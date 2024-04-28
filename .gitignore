@@ -1,5 +1,5 @@
 /assets/model.tflite
-/assets/labelx.txt
+/assets/labels.txt
 # Project exclude paths
 /.dart_tool/
 /build/
