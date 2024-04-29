@@ -46,7 +46,6 @@ The methodology involved integrating the NASNet large model, optimised with Tens
 
 
 ## Getting Started
-![](/Users/sameerlimbu/Desktop/Simulator Screenshot - iPhone 15 Pro - 2024-04-23 at 23.57.33.png)
 
 This project is a starting point for a Flutter application.
 
