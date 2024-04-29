@@ -1,12 +1,18 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:developer';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DogApiService {
   static Future<Map<String, dynamic>> fetchBreedInfo(String breedName) async {
     // Replace hyphens with underscores in breed name
     String finalBreedName = breedName.replaceAll('-', '_');
 
+    // Load the API key from the .env file
+    final apiKey = dotenv.env['API_KEY'];
+    if (apiKey == null) {
+      throw Exception('API key not found in the .env file');
+    }
 
     final uri = Uri.parse('https://api.thedogapi.com/v1/breeds/search?q=$finalBreedName');
     // Log the URI to see the exact request being made
@@ -15,7 +21,7 @@ class DogApiService {
     //Make the GET request
     final response = await http.get(
       uri,
-      headers: {'x-api-key': 'live_Z0eCVGQs2vWjga70yEGmyzka5AJBpCqRXbuw3uXVyzbhH0OjPadfd48zt0NaxXuy'},
+      headers: {'x-api-key': apiKey},
     );
 
     // Log the status code and response body to diagnose potential issues
